@@ -1,0 +1,21 @@
+-- Create the database
+CREATE DATABASE student_forum;
+
+-- Use the database
+USE student_forum;
+
+-- Create the Student table
+CREATE TABLE Student (
+    PID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Age INT NOT NULL CHECK (Age >= 0),
+    Gender VARCHAR(10)
+);
+
+-- Create the Posts table
+CREATE TABLE Posts (
+    PostID INT AUTO_INCREMENT PRIMARY KEY,
+    PID INT,
+    Content TEXT,
+    FOREIGN KEY (PID) REFERENCES Student(PID)
+);
